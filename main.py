@@ -1,6 +1,8 @@
 import telebot
+# importação do bot do telegram
 
 CHAVE_API = "6015295818:AAF1LD2xwQtVns9Jjyf87sK9NKukh7wWXag"
+# uso da chave do bot criada pelo telegram
 bot = telebot.TeleBot(CHAVE_API)
 
 
@@ -67,6 +69,7 @@ def verificar(mensagem):
     return True
 
 
+# Você escolhe o que deseja saber sobre Frontend
 @bot.message_handler(commands="Frontend")
 def responder(mensagem):
     text = """"
@@ -80,6 +83,8 @@ Clique em alguma das 3 opções, qualquer ação diferente, não ira funcionar!
     """
     bot.reply_to(mensagem, text)
 
+
+# Você escolhe o que deseja saber sobre Backend
 @bot.message_handler(commands="Backend")
 def responder(mensagem):
     text = """"
@@ -93,6 +98,7 @@ Clique em alguma das 3 opções, qualquer ação diferente, não ira funcionar!
     """
     bot.reply_to(mensagem, text)
 
+# escolher entre Frontend e Backend
 @bot.message_handler(func=verificar)
 def responder(mensagem):
     text = """"
